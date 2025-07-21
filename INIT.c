@@ -1,1 +1,23 @@
-#include "A4Stuff.h"#include "SetupA4.h"#include "ShowInitIcon.h"#include <DateTimeUtils.h>const long myDateTime = 3029529600;const int kInitIcon = 128;// setDate updates the date time in the clock chipvoid setDate() {	//sets the date time to 01/01/2000. Based on pg. 4-36 of Inside Macintosh Operating System Utilities	SetDateTime(myDateTime);}void main(void){	long	oldA4;			oldA4 = SetCurrentA4();	RememberA4();	ShowInitIcon(kInitIcon, true);	setDate();	SetA4(oldA4);}
+#include "A4Stuff.h"
+#include "SetupA4.h"
+#include "ShowInitIcon.h"
+#include <DateTimeUtils.h>
+
+const long myDateTime = 3029529600;
+const int kInitIcon = 128;
+
+// setDate updates the date time in the clock chip
+void setDate() {
+	//sets the date time to 01/01/2000. Based on pg. 4-36 of Inside Macintosh Operating System Utilities
+	SetDateTime(myDateTime);
+}
+
+void main(void)
+{
+	long	oldA4;		
+	oldA4 = SetCurrentA4();
+	RememberA4();
+	ShowInitIcon(kInitIcon, true);
+	setDate();
+	SetA4(oldA4);
+}
